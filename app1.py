@@ -73,68 +73,10 @@ def reply(input,image,prompt):
 # 🚀 Process All Selected Features
 if st.button("✨ Process with AI"):
     if not features_selected:
-        prompt=f"""
-        Make the heading as Finding & Fixing Bugs
-        Analyze the following code for errors and potential bugs. Identify syntax issues, logical errors, and performance inefficiencies. 
-                                Provide a list of errors with explanations and suggest fixes. give headings in bold text.If there are no errors, mention that there are no errors.
-                                Code:{code_input}
-                                Output Format:
-                                - Bug Type
-                                - Issue: Describe the problem.
-                                - Suggested Fix: Provide a corrected version of the code.
-                                - Explanation: Explain why the fix works.
-
-        Make the heading as Explaination of Code
-        Explain the following code in simple terms. Break it down step by step, describing what each function, loop, and condition does. 
-                            Provide a beginner-friendly explanation, highlighting variable interactions and purpose.give headings in bold text.
-
-                            Code:
-                            {code_input}
-
-                            Output Format:
-                            - Overview: What the code does.
-                            - Step-by-Step Breakdown: Explain each important line.
-                            - Key Concepts Used: List algorithms, data structures, and logic patterns.
-
-        Make the heading as Optimizing Code
-        Optimize the following code to improve time and space efficiency. Identify inefficiencies and suggest improvements while maintaining the same functionality. 
-                            If there are redundant lines, suggest their removal.please give headings in bold text. 
-
-                            Code:
-                            {code_input}
-
-                            Output Format:
-                            - Current Issues: Describe inefficiencies in time/space complexity.
-                            - Optimized Code:
-                            - Explanation of Improvements:
-                            - Before & After Performance (if applicable)
-
-        
-        Make the heading as Detect & Adapt Language
-        Detect the programming language of the following code. If it is Python, JavaScript, C++, Java, or Ruby, and go provide equivalent implementations in the other languages.
-
-                        Code:
-                        {code_input}
-
-                        Output Format:
-                        - Detected Language:
-                        - Equivalent Implementations in Other Languages:
-
-        
-        Make the heading as Refactoring the Code
-        Refactor the following code to enhance readability, maintainability, and structure. Improve variable naming, break down large functions, and eliminate redundant code while preserving functionality.  
-                Format the output with bold headings.  
-
-                Code:  
-                {code_input}  
-
-                Expected Output:  
-                - *Refactored Code:*  
-                - *Key Improvements:*  
-                - **How These Changes Enhance Readability:
+        prompt=f"""generate code for the following 
 
         """
-        output=query_gemini(prompt)
+        output=query_gemini(prompt+code_input)
         st.success("✨ AI Processed Your Code!")
         st.markdown(output, unsafe_allow_html=True)
 
