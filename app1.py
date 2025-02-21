@@ -73,7 +73,7 @@ def reply(input,image,prompt):
 # 🚀 Process All Selected Features
 if st.button("✨ Process with AI"):
     if not features_selected:
-        prompt=f"""generate code for the following 
+        prompt=f""" 
 
         """
         output=query_gemini(prompt+code_input)
