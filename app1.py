@@ -85,7 +85,7 @@ if st.button("✨ Process with AI"):
             if feature == "Convert Handwritten Code" and uploaded_file:
                 image1 = Image.open(uploaded_file)
                 st.image(image1)
-                prompt="i provide you a image contaning hand written code . you need to analyze the image and generate the handwritten code as noraml digital code and provide explanation for that code"
+                prompt="i provide you a image contaning hand written code . you need to analyze the image and generate the handwritten code as noraml digital code and provide explanation for that code . if no text found in image reply as no text found"
 
                 # 🛠 Extract text from image using Pytesseract with better accuracy settings
                 extracted_text = reply("",image1,prompt)
@@ -97,7 +97,7 @@ if st.button("✨ Process with AI"):
 
             elif feature == "Find & Fix Bugs":
                 prompt = f"""Analyze the following code for errors and potential bugs. Identify syntax issues, logical errors, and performance inefficiencies. 
-                                Provide a list of errors with explanations and suggest fixes. give headings in bold text.If there are no errors, mention that there are no errors.
+                                Provide a list of errors with explanations and suggest fixes. give headings in bold text.If there are no errors, mention that there are no errors.if not found any errors say not found any errors
                                 Code:{code_input}
                                 """
                 output = query_gemini(prompt)
@@ -118,7 +118,7 @@ if st.button("✨ Process with AI"):
 
             elif feature == "Optimize Code":
                 prompt = f"""Optimize the following code to improve time and space efficiency. Identify inefficiencies and suggest improvements while maintaining the same functionality. 
-                            If there are redundant lines, suggest their removal.please give headings in bold text. 
+                            If there are redundant lines, suggest their removal.please give headings in bold text. atlast compare previous and optimized code complexieties and provide that 
 
                             Code:
                             {code_input}
