@@ -1,6 +1,5 @@
 import streamlit as st
 import google.generativeai as genai  # Google AI API
-import pytesseract  # For OCR (Handwritten Code Conversion)
 from PIL import Image  # For image handling
 
 # 🔑 Set Your Google AI API Key (Replace with Your Key)
